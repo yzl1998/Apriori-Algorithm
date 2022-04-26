@@ -31,6 +31,9 @@ def main():
     df.loc[df['VIC_AGE_GROUP'].isin(['UNKNOWN']),'VIC_AGE_GROUP'] = ''
     df.loc[df['VIC_RACE'].isin(['UNKNOWN']),'VIC_RACE'] = ''
     df.loc[df['VIC_SEX'].isin(['UNKNOWN']),'VIC_SEX'] = ''
+    df.loc[df['SUSP_AGE_GROUP'].isin(['UNKNOWN']),'SUSP_AGE_GROUP'] = ''
+    df.loc[df['SUSP_RACE'].isin(['UNKNOWN']),'SUSP_RACE'] = ''
+    df.loc[df['SUSP_SEX'].isin(['UNKNOWN']),'SUSP_SEX'] = ''
     
     nan_value = float("NaN")
     df.replace("", nan_value, inplace=True)
