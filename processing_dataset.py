@@ -28,7 +28,7 @@ def main():
 
     # Read selected columns
     selected_cols = ['ADDR_PCT_CD', 'OFNS_DESC', 'PD_DESC', 'CRM_ATPT_CPTD_CD', 'LAW_CAT_CD', 'BORO_NM', 'PREM_TYP_DESC', 'SUSP_AGE_GROUP', 'SUSP_RACE', 'SUSP_SEX', 'VIC_AGE_GROUP', 'VIC_RACE', 'VIC_SEX']
-    df = pd.read_csv(file_name, nrows=100, usecols = selected_cols)
+    df = pd.read_csv(file_name, nrows=10000, usecols = selected_cols)
 
     # Replace UNKNOWN fields with empty string
     df.loc[df['VIC_AGE_GROUP'].isin(['UNKNOWN']),'VIC_AGE_GROUP'] = ''
