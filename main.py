@@ -33,7 +33,7 @@ def main():
 
     # read selected columns
     # ['ADDR_PCT_CD', 'OFNS_DESC', 'PD_DESC', 'CRM_ATPT_CPTD_CD', 'LAW_CAT_CD', 'BORO_NM', 'PREM_TYP_DESC', 'SUSP_AGE_GROUP', 'SUSP_RACE', 'SUSP_SEX', 'VIC_AGE_GROUP', 'VIC_RACE', 'VIC_SEX']
-    selected_cols = ['OFNS_DESC', 'SUSP_AGE_GROUP', 'SUSP_RACE', 'VIC_AGE_GROUP', 'VIC_RACE']
+    selected_cols = ['LAW_CAT_CD', 'BORO_NM', 'SUSP_AGE_GROUP', 'SUSP_RACE', 'VIC_AGE_GROUP', 'VIC_RACE']
     df = pd.read_csv(file_name, usecols = selected_cols)
     num_transactions = len(df)
 
@@ -54,7 +54,6 @@ def main():
     # item_apperences: number of transactions where an item in itemset appears
     item_apperences = defaultdict(lambda: 0)
 
-
     L = set()
 
     # create all large 1-itemsets
@@ -71,6 +70,7 @@ def main():
             large_itemsets.append(frozenset([item]))
             large_itemsets_supports[frozenset([item])] = item_apperences[item] / num_transactions
 
+    # main step 1: create all large itemsets through iteration until L is empty
     k = 0
     while len(L) != 0:
         C = set()
@@ -98,7 +98,8 @@ def main():
 
         L = set()
         itemset_apperences = defaultdict(lambda: 0)
-        # create (k+1)-item sets
+
+        # create (k+2)-itemsets by counting (k+2)-itemsets' apperances
         for transaction in transactions:
             for candidate_itemset in pruned_C:
                 if candidate_itemset.issubset(transaction):
@@ -111,38 +112,25 @@ def main():
                 large_itemsets.append(candidate_itemset)
                 large_itemsets_supports[candidate_itemset] = itemset_apperences[candidate_itemset] / num_transactions
         k += 1
-        #print(k)
-        #print(len(L))
 
     sorted_large_itemsets = sorted(large_itemsets_supports.items(), key=lambda x: x[1], reverse=True)
-    """"
-    print(f'==Frequent itemsets (min_sup={min_sup*100:,.3f}%)')
-    for large_itemset, supp in sorted_large_itemsets:
-        print(f'{list(large_itemset)}, {supp * 100:,.3f}%')
-    """
 
-    # compute association rules
+    # main step 2: compute association rules
     association_rules = []
     association_rules_confidences = defaultdict(lambda: 0)
 
     for large_itemset in large_itemsets:
         num_items = len(large_itemset)
         if num_items > 1:
-            lhs_size = num_items - 1
-            lhs_combinations = [frozenset(i) for i in combinations(large_itemset, lhs_size)]
-            for lhs in lhs_combinations: 
-                rhs = large_itemset - lhs
+            rhs_lists = [frozenset([i]) for i in large_itemset]
+            for rhs in rhs_lists: 
+                lhs = large_itemset - rhs
                 conf = large_itemsets_supports[large_itemset]/large_itemsets_supports[lhs]
                 if conf >= min_conf:
                     association_rules.append((lhs, rhs))
                     association_rules_confidences[(lhs, rhs)] = conf
     
     sorted_rules_and_confs = sorted(association_rules_confidences.items(), key=lambda x: x[1], reverse=True)
-    """
-    print(f'==High-confidence association rules (min_conf={min_conf*100:,.3f}%)')
-    for (lhs, rhs), conf in sorted_rules_and_confs:
-        print(f'{list(lhs)} => {list(rhs)} (Conf:{conf * 100:,.3f}%, Supp: {large_itemsets_supports[lhs | rhs]* 100:,.3f}%)')
-    """
 
     # output results to output_file
     with open("output.txt", "w") as output_file:
