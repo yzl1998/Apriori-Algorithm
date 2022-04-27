@@ -1,0 +1,83 @@
+Dataset filename:   integrated_dataset.csv
+Minimum support:    0.1
+Minimum confidence: 0.5
+==Frequent itemsets (min_sup=10.000%)
+['S-25-44'], 55.845%
+['S-BLACK'], 51.217%
+['V-25-44'], 50.223%
+['V-BLACK'], 40.761%
+['V-BLACK', 'S-BLACK'], 35.516%
+['S-25-44', 'V-25-44'], 33.973%
+['HARRASSMENT 2'], 29.791%
+['S-BLACK', 'S-25-44'], 27.837%
+['V-WHITE HISPANIC'], 27.048%
+['V-45-64'], 25.780%
+['S-BLACK', 'V-25-44'], 25.506%
+['ASSAULT 3 & RELATED OFFENSES'], 24.443%
+['S-WHITE HISPANIC'], 24.032%
+['V-BLACK', 'S-25-44'], 22.386%
+['V-BLACK', 'V-25-44'], 19.815%
+['V-BLACK', 'S-BLACK', 'S-25-44'], 19.472%
+['S-45-64'], 19.232%
+['S-18-24'], 18.067%
+['V-BLACK', 'S-BLACK', 'V-25-44'], 17.278%
+['S-BLACK', 'S-25-44', 'V-25-44'], 16.695%
+['S-25-44', 'HARRASSMENT 2'], 16.387%
+['V-WHITE HISPANIC', 'S-WHITE HISPANIC'], 16.250%
+['V-WHITE'], 16.147%
+['V-WHITE HISPANIC', 'S-25-44'], 15.941%
+['S-BLACK', 'HARRASSMENT 2'], 15.015%
+['V-WHITE HISPANIC', 'V-25-44'], 14.878%
+['V-18-24'], 14.775%
+['HARRASSMENT 2', 'V-25-44'], 14.638%
+['S-WHITE HISPANIC', 'S-25-44'], 14.535%
+['ASSAULT 3 & RELATED OFFENSES', 'S-25-44'], 14.296%
+['V-BLACK', 'S-25-44', 'V-25-44'], 13.233%
+['ASSAULT 3 & RELATED OFFENSES', 'V-25-44'], 12.753%
+['S-WHITE HISPANIC', 'V-25-44'], 12.650%
+['S-BLACK', 'V-45-64'], 12.650%
+['V-BLACK', 'HARRASSMENT 2'], 12.547%
+['ASSAULT 3 & RELATED OFFENSES', 'S-BLACK'], 11.999%
+['S-WHITE'], 11.827%
+['V-25-44', 'S-25-44', 'V-BLACK', 'S-BLACK'], 11.690%
+['S-25-44', 'V-45-64'], 11.622%
+['V-BLACK', 'V-45-64'], 11.039%
+['S-BLACK', 'S-18-24'], 10.627%
+['V-BLACK', 'HARRASSMENT 2', 'S-BLACK'], 10.627%
+['V-WHITE HISPANIC', 'S-25-44', 'V-25-44'], 10.490%
+==High-confidence association rules (min_conf=50.000%)
+['V-BLACK', 'S-25-44', 'V-25-44'] => ['S-BLACK'] (Conf:88.342%, Supp: 11.690%)
+['V-BLACK', 'V-25-44'] => ['S-BLACK'] (Conf:87.197%, Supp: 17.278%)
+['V-BLACK'] => ['S-BLACK'] (Conf:87.132%, Supp: 35.516%)
+['V-BLACK', 'S-25-44'] => ['S-BLACK'] (Conf:86.983%, Supp: 19.472%)
+['V-BLACK', 'HARRASSMENT 2'] => ['S-BLACK'] (Conf:84.699%, Supp: 10.627%)
+['S-BLACK', 'HARRASSMENT 2'] => ['V-BLACK'] (Conf:70.776%, Supp: 10.627%)
+['V-WHITE HISPANIC', 'V-25-44'] => ['S-25-44'] (Conf:70.507%, Supp: 10.490%)
+['S-BLACK', 'S-25-44', 'V-25-44'] => ['V-BLACK'] (Conf:70.021%, Supp: 11.690%)
+['S-BLACK', 'S-25-44'] => ['V-BLACK'] (Conf:69.951%, Supp: 19.472%)
+['S-BLACK'] => ['V-BLACK'] (Conf:69.344%, Supp: 35.516%)
+['S-BLACK', 'V-25-44'] => ['V-BLACK'] (Conf:67.742%, Supp: 17.278%)
+['V-BLACK', 'V-25-44', 'S-BLACK'] => ['S-25-44'] (Conf:67.659%, Supp: 11.690%)
+['V-25-44'] => ['S-25-44'] (Conf:67.645%, Supp: 33.973%)
+['S-WHITE HISPANIC'] => ['V-WHITE HISPANIC'] (Conf:67.618%, Supp: 16.250%)
+['V-BLACK', 'V-25-44'] => ['S-25-44'] (Conf:66.782%, Supp: 13.233%)
+['V-WHITE HISPANIC', 'S-25-44'] => ['V-25-44'] (Conf:65.806%, Supp: 10.490%)
+['S-BLACK', 'V-25-44'] => ['S-25-44'] (Conf:65.457%, Supp: 16.695%)
+['S-25-44'] => ['V-25-44'] (Conf:60.835%, Supp: 33.973%)
+['S-WHITE HISPANIC'] => ['S-25-44'] (Conf:60.485%, Supp: 14.535%)
+['V-WHITE HISPANIC'] => ['S-WHITE HISPANIC'] (Conf:60.076%, Supp: 16.250%)
+['V-BLACK', 'S-25-44', 'S-BLACK'] => ['V-25-44'] (Conf:60.035%, Supp: 11.690%)
+['S-BLACK', 'S-25-44'] => ['V-25-44'] (Conf:59.975%, Supp: 16.695%)
+['V-BLACK', 'S-25-44'] => ['V-25-44'] (Conf:59.112%, Supp: 13.233%)
+['V-WHITE HISPANIC'] => ['S-25-44'] (Conf:58.935%, Supp: 15.941%)
+['S-18-24'] => ['S-BLACK'] (Conf:58.824%, Supp: 10.627%)
+['ASSAULT 3 & RELATED OFFENSES'] => ['S-25-44'] (Conf:58.485%, Supp: 14.296%)
+['V-WHITE HISPANIC'] => ['V-25-44'] (Conf:55.006%, Supp: 14.878%)
+['HARRASSMENT 2'] => ['S-25-44'] (Conf:55.006%, Supp: 16.387%)
+['V-BLACK'] => ['S-25-44'] (Conf:54.920%, Supp: 22.386%)
+['V-BLACK', 'S-BLACK'] => ['S-25-44'] (Conf:54.826%, Supp: 19.472%)
+['S-BLACK'] => ['S-25-44'] (Conf:54.351%, Supp: 27.837%)
+['S-WHITE HISPANIC'] => ['V-25-44'] (Conf:52.639%, Supp: 12.650%)
+['ASSAULT 3 & RELATED OFFENSES'] => ['V-25-44'] (Conf:52.174%, Supp: 12.753%)
+['V-25-44'] => ['S-BLACK'] (Conf:50.785%, Supp: 25.506%)
+['HARRASSMENT 2'] => ['S-BLACK'] (Conf:50.403%, Supp: 15.015%)
